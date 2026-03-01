@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank's Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <header>
+        <h1>Student Calendar</h1>
+
+        <div class="top-controls">
+            <div class="month-nav">
+                <button id="prevBtn" aria-label="Previous Month">◀</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextBtn" aria-label="Next Month">▶</button>
+            </div>
+
+            <select id="themeSwitcher" aria-label="Theme Switcher">
+                <option value="">Theme</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+    </header>
+
+    <div id="calendar" class="calendar" role="grid" aria-label="Calendar"></div>
+
+    <section class="event-section">
+        <h3>Add Event</h3>
+
+        <form id="eventForm" novalidate>
+
+            <label>
+                Event Title
+                <input type="text" id="eventTitle" required minlength="3">
+            </label>
+
+            <label>
+                Time
+                <input type="time" id="eventTime" required>
+            </label>
+
+            <label>
+                Category
+                <select id="eventCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="work">Work</option>
+                    <option value="school">School</option>
+                    <option value="personal">Personal</option>
+                </select>
+            </label>
+
+            <button type="submit">Add Event</button>
+        </form>
+
+        <ul id="eventList" aria-live="polite"></ul>
+    </section>
+
+</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

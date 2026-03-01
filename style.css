@@ -1,0 +1,236 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.app {
+    background: white;
+    width: 800px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+}
+
+/* ------------------ */
+/* Top Controls / Month Navigation */
+/* ------------------ */
+.top-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* month-nav left/center, dropdown right */
+    margin: 20px 0;
+}
+
+.month-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* spacing between arrows and month */
+}
+
+.month-nav button {
+    padding: 8px 15px;
+    font-size: 18px;
+    border: none;
+    background: #4e73df;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.month-nav button:hover {
+    background: #2e59d9;
+}
+
+#monthYear {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* ------------------ */
+/* Calendar Grid */
+/* ------------------ */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    background: #f8f9fc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.day:hover {
+    background: #d1d3e2;
+}
+
+.day.selected {
+    background: #1cc88a;
+    color: white;
+}
+
+/* ------------------ */
+/* Event Section */
+/* ------------------ */
+.event-section {
+    margin-top: 25px;
+}
+
+.event-section input {
+    padding: 8px;
+    width: 70%;
+}
+
+.event-section button {
+    padding: 8px 15px;
+    background: #1cc88a;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#eventList {
+    margin-top: 15px;
+}
+
+/* ------------------ */
+/* Animations */
+/* ------------------ */
+.day {
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: 0.2s ease;
+}
+
+/* ------------------ */
+/* Responsive */
+/* ------------------ */
+@media (max-width: 768px) {
+    .calendar {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .app {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* ------------------ */
+/* Dark Theme */
+/* ------------------ */
+body.dark {
+    background: #121212;
+    color: #f1f1f1;
+}
+
+body.dark .app {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark label {
+    color: #ffffff;
+}
+
+body.dark .calendar .day {
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+body.dark .calendar .day:hover {
+    background: #3a3a3a;
+}
+
+body.dark .calendar .day.selected {
+    background: #4e73df;
+    color: #ffffff;
+}
+
+body.dark input,
+body.dark select {
+    background: #2c2c2c;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+body.dark input::placeholder {
+    color: #bbbbbb;
+}
+
+body.dark button {
+    background: #4e73df;
+    color: white;
+}
+
+body.dark button:hover {
+    background: #375abf;
+}
+
+body.dark ul li {
+    background: #2c2c2c;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* ------------------ */
+/* Event Dots & List */
+/* ------------------ */
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.dot.work { background-color: #4e73df; }
+.dot.school { background-color: #f6c23e; }
+.dot.personal { background-color: #e74a3b; }
+
+body.dark .dot.work { background-color: #6790ff; }
+body.dark .dot.school { background-color: #ffeb7f; }
+body.dark .dot.personal { background-color: #ff726f; }
+
+#eventList li {
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+#eventList li.work { background-color: #e2e6f5; color: #2c3e91; }
+#eventList li.school { background-color: #fff8db; color: #8a6d00; }
+#eventList li.personal { background-color: #fbdada; color: #a94442; }
+
+body.dark #eventList li.work { background-color: #374eaa; color: #c9d4ff; }
+body.dark #eventList li.school { background-color: #665b1a; color: #fef4b8; }
+body.dark #eventList li.personal { background-color: #663d3d; color: #ffb3b3; }
