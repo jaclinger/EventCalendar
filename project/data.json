@@ -1,8 +1,0 @@
-{
-  "defaultEvents": [
-    { "date": "2026-2-14", "title": "Valentine's Day", "category": "personal" },
-    { "date": "2026-7-4", "title": "Independence Day", "category": "personal" },
-    { "date": "2026-5-12", "title": "Math Exam", "category": "school" },
-    { "date": "2026-3-3", "title": "Team Meeting", "category": "work" }
-  ]
-}
