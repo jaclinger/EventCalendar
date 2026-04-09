@@ -54,11 +54,23 @@ function renderCalendar() {
 
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
+
     monthYear.textContent =
         currentDate.toLocaleString("default", { month: "long" }) + " " + year;
 
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
+    // 🆕 Get starting day of week (0 = Sunday, 6 = Saturday)
+    const startDay = new Date(year, month, 1).getDay();
+
+    // 🆕 Add empty cells before day 1
+    for (let i = 0; i < startDay; i++) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("empty");
+        calendar.appendChild(emptyDiv);
+    }
+
+    // Normal days
     for (let day = 1; day <= daysInMonth; day++) {
         const dateKey = `${year}-${month + 1}-${day}`;
         const dayDiv = document.createElement("div");
@@ -71,7 +83,7 @@ function renderCalendar() {
         number.textContent = day;
         dayDiv.appendChild(number);
 
-        // Add event dots if any
+        // Event dots
         if (events[dateKey]) {
             const dotContainer = document.createElement("div");
             dotContainer.classList.add("event-dots");
